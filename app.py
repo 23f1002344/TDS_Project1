@@ -1109,17 +1109,6 @@ Your goal is to write a Python or Bash script to perform the given instruction. 
 ### Execution Environment:
 - The script will run inside a Docker container with the following pre-installed system packages:  
   `git`, `curl`, `wget`, `sqlite3`, `ffmpeg`, `imagemagick`, `build-essential`, `libpq-dev`, and `node v22`.  
-- Additionally, the container includes the following **Python packages**:
-
-  - **Web frameworks & HTTP handling:** `fastapi`, `uvicorn[standard]`, `requests`, `httpx`, `aiohttp`, `websockets`
-  - **Data processing:** `pandas`, `numpy`, `duckdb`, `polars`, `pyarrow`, `scipy`
-  - **Database interaction:** `sqlalchemy`, `psycopg2-binary`, `asyncpg`
-  - **Image processing:** `pillow`, `opencv-python-headless`
-  - **Text processing:** `beautifulsoup4`, `markdown`, `python-frontmatter`, `pyyaml`, `jinja2`
-  - **File handling:** `python-multipart`, `python-magic`, `python-docx`, `pypdf2`
-  - **Audio processing:** `librosa`
-  - **Development tools:** `pytest`, `black`, `isort`, `mypy`, `python-dotenv`, `rich`, `typer`
-  - **Git operations:** `gitpython`
 
 ### Response Format:
 - **Provide only a fenced code block containing the script**.
@@ -1217,7 +1206,7 @@ def handle_diverse_tasks(task_instruction: str):
         file.write(script_code)
     
     if script_type == "python":
-        result = subprocess.run(["python", script_file], capture_output=True, text=True)
+        result = subprocess.run(["uv", "run", script_file], capture_output=True, text=True)
     else:
         result = subprocess.run(["bash", script_file], capture_output=True, text=True)
     

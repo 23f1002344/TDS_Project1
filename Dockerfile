@@ -21,57 +21,12 @@ RUN curl -sL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh && \
     npm install -g prettier@3.4.2
 
 # Upgrade pip and install packages in system Python
-RUN python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel && \
+RUN python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel uv && \
     python3 -m pip install --no-cache-dir \
     # Web frameworks and APIs
     fastapi \
     uvicorn[standard] \
-    requests \
-    httpx \
-    aiohttp \
-    websockets \
-    # Data processing
-    pandas \
-    numpy \
-    duckdb \
-    polars \
-    pyarrow \
-    scipy \
-    # Database
-    sqlalchemy \
-    psycopg2-binary \
-    asyncpg \
-    # ML and AI
-    # scikit-learn \
-    # transformers \
-    # sentence-transformers \
-    # torch \
-    # Image processing
-    pillow \
-    opencv-python-headless \
-    # Text processing
-    beautifulsoup4 \
-    markdown \
-    python-frontmatter \
-    pyyaml \
-    jinja2 \
-    # File handling
-    python-multipart \
-    python-magic \
-    python-docx \
-    pypdf2 \
-    # Audio processing
-    librosa \
-    # Development tools
-    pytest \
-    black \
-    isort \
-    mypy \
-    python-dotenv \
-    rich \
-    typer \
-    # Git operations
-    gitpython
+    requests
 
 # Install uv package manager
 # COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx/bin/
