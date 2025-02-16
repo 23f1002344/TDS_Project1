@@ -1114,6 +1114,30 @@ Your goal is to write a Python or Bash script to perform the given instruction. 
 - **Provide only a fenced code block containing the script**.
 - **Do not include any explanations, comments, or additional instructions**.
 
+- The container **includes** the following **Python packages**:  
+  - Web frameworks & APIs: `fastapi`, `uvicorn[standard]`, `requests`
+  
+- **If the script requires any additional Python packages**, it must include an **inline script for `uv` to resolve dependencies**, like this:  
+
+  ```python
+  # /// script
+  # requires-python = ">=3.13"
+  # dependencies = [
+  #     "fastapi",
+  #     "uvicorn",
+  #     "requests",
+  #     "db-sqlite3",
+  #     "scipy",
+  #     "python-dateutil",
+  #     "pybase64",
+  # ]
+  # ///
+
+  import fastapi
+  <insert code logic here>
+  ```  
+(Note: make sure to specify the CORRECT name of the dependency. if unsure, find some other way to implement the same logic.)
+
 ### Example Instructions and Expected Outputs:
 
 #### Example 1:
